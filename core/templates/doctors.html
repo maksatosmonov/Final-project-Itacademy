@@ -1,0 +1,37 @@
+{% extends 'index.html'%}
+
+{% block content %}
+<div style="padding: 100px;">
+    <h3> Список медицинских работников</h3>
+    <h5>Вы можете выбрать докторов для консультации из вышеуказанного списка!!!</h5>
+    <br>
+    <table class="table table-hover">
+        <thead class="thead-light">
+            <tr>
+                <th>Doctor username</th>
+                <th>Doctor specialization</th>
+                <th>Doctor first name</th>
+                <th>Doctor last name</th>
+                <th>Doctor Date of work</th>
+                <th>Doctor place of work</th>
+                <th>Doctor phone number</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for doctor in doctors %}
+                <tr>
+                    <td><a href="{% url 'doctor_profile' doctor.pk %}">{{ doctor.user.username  }}</a></td>
+                    <td>{{ doctor.doctor_position  }}</td>
+                    <td>{{ doctor.user.first_name }}</td>
+                    <td>{{ doctor.user.last_name }}</td>
+                    <td>{{ doctor.date_of_work }}</td>
+                    <td>{{ doctor.hospital_name }}</td>
+                    <td>{{ doctor.phone_number }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+
+    {% endblock %}

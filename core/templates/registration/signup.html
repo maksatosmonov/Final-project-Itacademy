@@ -1,0 +1,37 @@
+{% extends 'index.html'%}
+
+{% block content %}
+
+
+
+    <section class="medica-doctors-area section_padding_100_20">
+        <div class="container">
+            <h3>Уважаемый посетитель!!!! Просим Вас пройти регистрацию для дальнейшей работы на сайте. 
+                Если вы врач прошу кликнуть на картинку с врачами и если вы просто посетитель нажмите на левую 
+                картинку с изображением семьи.Спасибо!!!</h3>
+            <br>
+            <br>
+            <div class="row">
+                <div class="col-sm-12 col-md-12 col-lg-3">
+                    <div class="single-doctor-area">
+                        <div class="img-fluid">
+                            <a href="{% url 'doctor_signup' %}">
+                                <img src="https://png.pngtree.com/png-clipart/20190618/original/pngtree-hand-drawn-volunteers-doctor-character-nurse-character-obligatory-illustrator-png-image_3934228.jpg" class="float-left" alt="" width="304" height="236">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-12 col-md-12 col-lg-9">
+                    <div class="single-doctor-area">
+                        <div class="img-fluid">
+                            <a href="{% url 'patient_signup' %}">
+                                <img src="https://cspsid-pechatniki.ru/wp-content/uploads/narisovat-risunok-moya-semya_13.jpg" class="float-right" alt="" width="304" height="236">
+                            </a>    
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </div>
+    </section>
+
+{% endblock %}
