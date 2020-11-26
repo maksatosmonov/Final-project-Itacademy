@@ -1,0 +1,31 @@
+{% extends 'index.html' %}
+
+{% block content %}
+
+<div class="container p-3 my-3 border border-primary rounded-sm">
+    <h1>{{ chat.name }}</h1>
+    <br>
+    {% for message in chat.message.all  %}
+        <div>
+            <i>{{ message.sender }}</i>
+            <br>
+            <b>{{ message.date }}</b>
+            <br>
+            <br>
+            <h3>{{ message.text }}</h3> 
+            <hr>
+            <br>
+        </div>
+
+    {% endfor %}
+    <form action="{% url 'add-message' %} " method="POST">
+        {% csrf_token %}
+        <input type="text" name="message" style="width: 50%; height: 100px;" >
+        <input type="hidden" name="chat" value="{{ chat.id }}" readonly>
+        <br>
+        <br>
+        <button  class="btn btn-primary">Отправить</button>
+    </form>
+    <span id="end"></span>
+</div>
+{% endblock %}

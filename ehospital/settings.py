@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/2.0/ref/settings/
 """
 
 import os
+from pathlib import Path
 from django.urls import reverse_lazy
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
@@ -39,9 +40,9 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'core',
-    'chat',
     'bootstrap4',
     'crispy_forms',
+    'chat',
 ]
 
 MIDDLEWARE = [
@@ -73,6 +74,7 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'ehospital.wsgi.application'
+
 
 
 
@@ -135,4 +137,9 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'staticfiles/mediafiles')
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, "staticfiles"),
 )
+
+
+# ASGI_APPLICATION = "ehospital.routing.application"
+
+
 

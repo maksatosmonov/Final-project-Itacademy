@@ -1,0 +1,27 @@
+{% extends 'index.html' %}
+{% load bootstrap4 %}
+
+{% block content %}
+
+    <link rel="stylesheet" type="text/css" href="chat.css" />
+    <body>
+        <h2>{{ chat.name }}</h2>
+        {% for message in chat.message.all  %}
+            <div class="container">
+                <img src="/w3images/bandmember.jpg" alt="Avatar" style="width:100%;">
+                <p>{{ message.sender }}</p>
+                <p>{{ message.text }}</p>
+                <span class="time-right">{{ message.date }}</span>
+            </div>
+        {% endfor %}
+        <br>
+            <form action="{% url 'add-message' %} " method="POST">
+                {% csrf_token %}
+                <input type="text" name="message">
+                <input type="hidden" name="chat" value="{{ chat.id }}" readonly>
+                <button type="button" class="btn btn-primary">Sent</button>
+            </form>
+            <span id="end"></span>
+  </body>
+
+{% endblock %}

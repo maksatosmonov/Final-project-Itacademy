@@ -1,0 +1,12 @@
+{% extends 'index.html' %}
+{% load bootstrap4 %}
+
+{% block content %}
+
+    <ul>
+        {% for chat in chats %}
+            <li><a href="/chat/{{ chat.id }}#end">{{ chat.name }}</a></li>
+        {% endfor %}    
+    </ul>
+
+{% endblock %}
