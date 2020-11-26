@@ -22,7 +22,7 @@ class DoctorProfile(models.Model):
         ('Male', 'MALE'),
         ('Female', 'FEMALE'))
     gender = models.CharField(max_length=255, choices=gender, default='MALE')
-    photo = models.ImageField(upload_to='staticfiles/mediafiles/', null=True, blank=True)
+    photo = models.ImageField(upload_to='photos/', null=True, blank=True)
     phone_number = models.CharField(max_length=10)
     adress = models.TextField(blank=True, null=True)
     licences_number = models.CharField(max_length=20, unique=True)

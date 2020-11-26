@@ -4,9 +4,13 @@
 {% block content %}
 
     <ul>
-        {% for chat in chats %}
-            <li><a href="/chat/{{ chat.id }}#end">{{ chat.name }}</a></li>
-        {% endfor %}    
+        {% for message in messages %}
+            <li>
+                <h3>{{ message.owner.first_name }} {{ message.owner.last_name }}</h3>
+                <p>{{ message.text }}</p>
+                <span>{{ message.date }}</span>
+            </li>
+        {% endfor %}
     </ul>
 
 {% endblock %}

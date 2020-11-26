@@ -30,11 +30,11 @@
             <div class="col-md-8">
                 {% if user.is_authenticated and user.is_patient %}
                     <h6>Вы можете проконсультироваться онлайн с врачом по чату</h6>
-                    <a class="btn btn-danger" href="{% url 'chatpage'  %}" role="button">Начать чат с доктором</a>
+                    <a class="btn btn-danger" href="{% url 'chat_page' %}" role="button">Начать чат с доктором</a>
                 
                 {% elif  user.is_authenticated and user.is_doctor %}
                     <h6>Вы можете поговорить с пациентом </h6>
-                    <a class="btn btn-danger" href="{% url 'chatpage'  %}" role="button">Начать чат с пациентом</a>
+                    <a class="btn btn-danger" href="{% url 'chat_page' %}" role="button">Начать чат с пациентом</a>
 
                 {% endif %}
             </div>

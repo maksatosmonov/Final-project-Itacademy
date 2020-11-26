@@ -3,11 +3,15 @@
 {% block content %}
 
 <div class="container p-3 my-3 border border-primary rounded-sm">
-    <h1>{{ chat.name }}</h1>
+    <h1>Общий чат</h1>
     <br>
-    {% for message in chat.message.all  %}
+    {% for message in messages  %}
         <div>
-            <i>{{ message.sender }}</i>
+            {% if message.owner.is_doctor %}
+                <i style="color: green">{{ message.owner.first_name }} {{ message.owner.last_name }}</i>
+            {% else %}
+                <i style="color: #0b0b0b">{{ message.owner.first_name }} {{ message.owner.last_name }}</i>
+            {% endif %}
             <br>
             <b>{{ message.date }}</b>
             <br>
@@ -21,7 +25,6 @@
     <form action="{% url 'add-message' %} " method="POST">
         {% csrf_token %}
         <input type="text" name="message" style="width: 50%; height: 100px;" >
-        <input type="hidden" name="chat" value="{{ chat.id }}" readonly>
         <br>
         <br>
         <button  class="btn btn-primary">Отправить</button>

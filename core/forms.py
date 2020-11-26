@@ -55,6 +55,7 @@ class DoctorForm(ModelForm):
             "doctor_position",
         ]
 
+
 class PatientForm(ModelForm):
     class Meta:
         model = PatientProfile
